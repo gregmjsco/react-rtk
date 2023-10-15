@@ -1,6 +1,6 @@
 import './App.css'
 import { useState, useEffect } from 'react';
-
+import kanjiData from '../rtk_chapters/rtkChapter1.json';
 
 
 
@@ -22,6 +22,15 @@ useEffect(() => {
     })
 }, [])
 
+  const [kanjiList, setKanjiList] = useState([]);
+
+  useEffect(() => {
+    // Assuming kanjiData is an object with a property 'kanjiList'
+    if (kanjiData && kanjiData.kanjiList) {
+      setKanjiList(kanjiData.kanjiList);
+    }
+  }, []);
+
 
   return (
     <>
@@ -39,6 +48,17 @@ useEffect(() => {
         return <pre>{JSON.stringify(item)}</pre>
         
       })}
+
+    <div>
+      <h1>Kanji List</h1>
+      <ul>
+        {kanjiList.map((kanji, index) => (
+          <li key={index}>
+            Kanji: {kanji.kanji}, Keyword: {kanji.keyword}
+          </li>
+        ))}
+      </ul>
+    </div>  
     </>
   )
 }
