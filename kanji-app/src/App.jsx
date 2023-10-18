@@ -20,12 +20,12 @@ function App() {
  
 
   return (
-    <>
+    <div className='card-container'>
     {data.map((kanji, index) => (
       <Card  key={index} kanji={kanji} />
     ))}
       
-    </>
+    </div>
   )
 }
 
