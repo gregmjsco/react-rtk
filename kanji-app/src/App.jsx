@@ -2,6 +2,7 @@ import './App.css'
 import { useState, useEffect } from 'react';
 import useFetchData from './components/useFetchData';
 import Card from './components/Card';
+import { v4 as uuidv4 } from 'uuid';
 
 
 
@@ -18,11 +19,15 @@ function App() {
     return <div>Error: {error.message}</div>
   }
  
+  const kanjiDataWithKey = data.map(kanji => ({
+    ...kanji,
+    id: uuidv4() 
+  }));
 
   return (
     <div className='card-container'>
-    {data.map((kanji, index) => (
-      <Card  key={index} kanji={kanji} />
+    {kanjiDataWithKey.map((kanji) => (
+      <Card  key={kanji.id} kanji={kanji} />
     ))}
       
     </div>

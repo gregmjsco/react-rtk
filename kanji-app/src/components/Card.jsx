@@ -1,10 +1,10 @@
 import React from "react";
 import "./Card.css"
 
-function Card({kanji}) {
+function Card({ kanji }) {
     return (
         <div className="kanji-card">
-            <p>{kanji}</p>
+            <p>{kanji.kanji}</p>
         </div>
     )
 }
