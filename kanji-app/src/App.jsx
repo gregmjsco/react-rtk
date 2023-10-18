@@ -21,8 +21,10 @@ function App() {
 
   return (
     <>
-      <h1>React Kanji app</h1>
-      <Card   data={data} />
+    {data.map((kanji, index) => (
+      <Card  key={index} kanji={kanji} />
+    ))}
+      
     </>
   )
 }

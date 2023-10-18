@@ -1,0 +1,12 @@
+.kanji-card {
+    height: 5vh;
+    width: 5vw;
+    background-color: #59656F;
+    margin: 3px;
+}
+
+.kanji-card p {
+    width: 3vw;
+    height: 3vh;
+    background-color: #DDBDD5;
+}
