@@ -13,9 +13,6 @@ function App() {
   const { data, loading, error } = useFetchData(kanjiURL);
   const [score, setScore] = useState(0);
 
-  const incrementScore = () => {
-    setScore(score + 1);
-  }
 
   if (loading) {
     return <div>Loading. . .</div>;
@@ -31,15 +28,39 @@ function App() {
     id: uuidv4() 
   }));
 
+  const shuffledData = shuffleArray([...kanjiDataWithKey])
+
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
+
+  function shuffleAndSetCards() {
+    const shuffled = shuffleArray([...shuffledData]);
+    setShuffledData(shuffled);
+  }
+
+  function handleClick() {
+    setScore(score + 1);
+        shuffledData.forEach(element => {
+          element.id = uuidv4();
+        });
+        setShuffledData([...shuffledData])
+      }
+  
+
   return (
     <>
     <Scoreboard score={score} />
     <div className='card-container'>
-    {kanjiDataWithKey.map((kanji) => (
-      <Card  key={kanji.id} kanji={kanji} onClick={incrementScore} />
-    ))}
+    {shuffledData.map((kanji) => {
+      <Card  key={kanji.id} kanji={kanji} onClick={handleClick} />
+    }
       
-    </div>
+  }</div>
     
     </>
   )

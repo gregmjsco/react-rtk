@@ -6,7 +6,6 @@ function Card({ kanji, onClick }) {
 
     function handleClick() {
         onClick();
-        alert('Clicked Card');  
     }
 
     return (
