@@ -1,9 +1,9 @@
 import "./Scoreboard.scss"
 
-function Scoreboard() {
+function Scoreboard({ score }) {
     return (
         <div className="scoreboard">
-            <p>Current Score: </p>
+            <p>Current Score: {score}</p>
             <p>Best Score: </p>
         </div>
     );

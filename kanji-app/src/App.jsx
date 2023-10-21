@@ -11,6 +11,11 @@ function App() {
 
   const kanjiURL = 'https://kanjiapi.dev/v1/kanji/grade-1';
   const { data, loading, error } = useFetchData(kanjiURL);
+  const [score, setScore] = useState(0);
+
+  const incrementScore = () => {
+    setScore(score + 1);
+  }
 
   if (loading) {
     return <div>Loading. . .</div>;
@@ -28,10 +33,10 @@ function App() {
 
   return (
     <>
-    <Scoreboard />
+    <Scoreboard score={score} />
     <div className='card-container'>
     {kanjiDataWithKey.map((kanji) => (
-      <Card  key={kanji.id} kanji={kanji} />
+      <Card  key={kanji.id} kanji={kanji} onClick={incrementScore} />
     ))}
       
     </div>
