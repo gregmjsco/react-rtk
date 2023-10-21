@@ -21,6 +21,7 @@ function App() {
  
   const kanjiDataWithKey = data.map(kanji => ({
     ...kanji,
+    character: kanji[0],
     id: uuidv4() 
   }));
 

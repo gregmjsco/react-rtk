@@ -2,10 +2,10 @@ import React from "react";
 import "./Card.scss"
 
 function Card({ kanji }) {
-    console.log("Kanji: ", kanji)
+    console.log(kanji)
     return (
         <div className="kanji-card">
-            <p>{kanji.kanji}</p>
+            <p>{kanji.character}</p>
         </div>
     )
 }
