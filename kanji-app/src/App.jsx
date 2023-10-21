@@ -1,4 +1,4 @@
-import './App.css'
+import './App.scss'
 import { useState, useEffect } from 'react';
 import useFetchData from './components/useFetchData';
 import Card from './components/Card';

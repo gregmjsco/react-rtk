@@ -1,11 +1,11 @@
 import React from "react";
-import "./Card.css"
+import "./Card.scss"
 
 function Card({ kanji }) {
     console.log("Kanji: ", kanji)
     return (
         <div className="kanji-card">
-            <p>{kanji.kanji[0]}</p>
+            <p>{kanji.kanji}</p>
         </div>
     )
 }
