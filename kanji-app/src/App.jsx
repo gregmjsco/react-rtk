@@ -38,32 +38,25 @@ function App() {
     return array;
   }
 
-  function shuffleAndSetCards() {
-    const shuffled = shuffleArray([...shuffledData]);
-    setShuffledData(shuffled);
-  }
+
 
   function handleClick() {
-    setScore(score + 1);
-        shuffledData.forEach(element => {
-          element.id = uuidv4();
-        });
-        setShuffledData([...shuffledData])
-      }
+      setScore(score + 1);
+      shuffleArray([...shuffledData])
+  }
   
 
   return (
     <>
-    <Scoreboard score={score} />
-    <div className='card-container'>
-    {shuffledData.map((kanji) => {
-      <Card  key={kanji.id} kanji={kanji} onClick={handleClick} />
-    }
-      
-  }</div>
-    
+      {console.log(shuffledData)}
+      <Scoreboard score={score} />
+      <div className="card-container">
+        {shuffledData.map((kanji) => (
+          <Card key={kanji.id} kanji={kanji} onClick={handleClick} />
+        ))}
+      </div>
     </>
-  )
+  );
 }
 
 export default App
