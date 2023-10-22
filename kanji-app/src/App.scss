@@ -14,7 +14,7 @@
 .card-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 15px;
+  gap: 1rem;
 
   text-align: center;
   box-shadow: 16px 17px 40px 29px #000000;
@@ -23,4 +23,8 @@
   block-size: 70%;
 
   background-color: $--clr-gray;
+
+  border-radius: 6px;
+
+  padding-block: 1rem;
 }
